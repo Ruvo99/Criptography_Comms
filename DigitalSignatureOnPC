@@ -1,0 +1,11 @@
+COMMS:
+
+nano msg.txt
+Este es un mensaje de texto para la actividad número 9 de Firma de Documentos en PC.
+openssl genrsa -out private.key 2048
+ls
+openssl dgst -sha256 -sign private.key -out signed.sha256 msg.txt
+ls
+openssl rsa -in private.key -pubout > public.key
+ls
+openssl dgst -sha256 -verify public.key -signature signed.sha256 msg.txt
